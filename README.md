@@ -1,4 +1,4 @@
-# The Sanjivani NGO - ReactJS & SpringBoot Project
+# The Nam - ReactJS & SpringBoot Project
 
 This project is a web application for The Sanjivani NGO. It's built using **ReactJS**, **Axios**, and **Bootstrap**.
 
