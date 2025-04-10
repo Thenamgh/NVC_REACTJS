@@ -8,7 +8,7 @@ export default function Events() {
     return (
         <>
             <Navbar />
-            <PageHeader title="Flagship Events" path="/event" name="Events" />
+            <PageHeader title="Hoạt động của Nắng" path="/event" name="Hoạt động của Nắng" />
             <Initiatives />
             <Footer />
             <BackToTop />

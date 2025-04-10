@@ -59,10 +59,10 @@ export default function Navbar() {
                             <div className="top-bar-right">
                                 <div className="social">
                                     <a href="https://www.tiktok.com/@nangvungcao1406"><i class="fa-brands fa-tiktok"></i></a>
-                                    <a href="https://www.facebook.com/vitsocials"><i className="fab fa-facebook-f"></i></a>
-                                    <a href="https://www.instagram.com/vitsocials/"><i className="fab fa-instagram"></i></a>
-                                    <a href="https://www.youtube.com/channel/UCJnaNm8Ns08rUIhsdFM2fhA"><i className="fab fa-youtube"></i></a>
-                                    <a href="https://www.linkedin.com/company/vit-social-welfare-development/"><i className="fab fa-linkedin-in"></i></a>
+                                    <a href="https://www.facebook.com/nangvungcao"><i className="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.instagram.com/2hi.april/"><i className="fab fa-instagram"></i></a>
+                                    <a href=""><i className="fab fa-youtube"></i></a>
+                                    <a href=""><i className="fab fa-linkedin-in"></i></a>
                                 </div>
                                 {auth.length > 0 && <button onClick={() => { (auth === "USER" ? localStorage.removeItem("NGO") : localStorage.removeItem("ADMIN_NGO")); setAuth(""); navigate("/"); }} type='button' className='btn btn-outline-danger'>LOGOUT {auth}</button>}
                             </div>

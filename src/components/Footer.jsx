@@ -59,7 +59,7 @@ export default function Footer() {
                         <p>&copy; <a href="#">Nắng Vùng Cao</a> | 2024, All Right Reserved.</p>
                     </div>
                     <div className="col-md-6">
-                        <p>Designed By <a href="https://www.linkedin.com/in/nguy%E1%BB%85n-th%E1%BA%BF-nam-85699528a/">Nguyen The Nam</a></p>
+                        <p>Designed By <a href="https://www.instagram.com/2hi.april/">22.April</a></p>
                     </div>
                 </div>
             </div>

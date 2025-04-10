@@ -9,7 +9,7 @@ export default function About() {
     return (
         <>
             <Navbar />
-            <PageHeader title="About Us" path="/about" name="About Us" />
+            <PageHeader title="Về Nắng" path="/about" name="Về Nắng" />
             <Landing />
             <Funds />
             <Footer />

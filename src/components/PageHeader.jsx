@@ -10,7 +10,7 @@ export default function PageHeader({ title, path, name }) {
                         <h2>{title}</h2>
                     </div>
                     <div className="col-12">
-                        <a href="/">Home</a>
+                        <a href="/">Trang chủ</a>
                         <a href={path}>{name}</a>
                     </div>
                 </div>

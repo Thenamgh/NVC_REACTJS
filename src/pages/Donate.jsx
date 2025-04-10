@@ -46,7 +46,7 @@ export default function Donate() {
             },
         };
         await axios.request(options)
-            .then((response) => { setRecentLogin(response.data);})
+            .then((response) => { setRecentLogin(response.data); })
             .catch(() => { localStorage.removeItem('NGO'); alert("Server Authentication Failed!\nLogin Again."); window.location.reload(); });
     };
 
@@ -266,7 +266,7 @@ export default function Donate() {
 
             {/* <!-- Donate Start --> */}
             <div className="donations">
-                <h2 className='logs' style={{backgroundColor:recentLogin?'whitesmoke':'transparent'}}>{recentLogin.length>0?`Last Login: ${recentLogin}`:<span>&#8203;</span>}</h2>
+                <h2 className='logs' style={{ backgroundColor: recentLogin ? 'whitesmoke' : 'transparent' }}>{recentLogin.length > 0 ? `Last Login: ${recentLogin}` : <span>&#8203;</span>}</h2>
                 <div className="container">
                     <div className="donate">
                         <div className="row align-items-center">
@@ -287,27 +287,67 @@ export default function Donate() {
                                 <div className="donate-form">
                                     <form onSubmit={handleSubmit}>
                                         <div className="control-group">
-                                            <input onChange={(e) => setName(e.target.value)} id='name' type="text" className="form-control" placeholder="Name" required autoComplete='name' />
+                                            <input
+                                                onChange={(e) => setName(e.target.value)}
+                                                id='name'
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="Name"
+                                                required
+                                                autoComplete='name'
+                                            />
                                         </div>
                                         <div className="control-group">
-                                            <input onChange={(e) => setEmail(e.target.value)} value={email} id='email' type="email" className="form-control" placeholder="Email" disabled={showLogin} required autoComplete='email' />
+                                            <input
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                value={email}
+                                                id='email'
+                                                type="email"
+                                                className="form-control"
+                                                placeholder="Email"
+                                                disabled={showLogin}
+                                                required
+                                                autoComplete='email'
+                                            />
                                         </div>
+
                                         <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
                                             <input type="radio" className="btn-check" name="btnradio" id="btnradio1" defaultChecked onChange={() => setAmount(100)} />
-                                            <label htmlFor='btnradio1' className="btn btn-custom btn-outline-warning"><i className='fa fa-indian-rupee' /> 100</label>
+                                            <label htmlFor='btnradio1' className="btn btn-custom btn-outline-warning"><i className='' /> 20.000 VNĐ</label>
 
                                             <input type="radio" className="btn-check" name="btnradio" id="btnradio2" onChange={() => setAmount(500)} />
-                                            <label htmlFor='btnradio2' className="btn btn-custom btn-outline-warning"><i className='fa fa-indian-rupee' /> 500</label>
+                                            <label htmlFor='btnradio2' className="btn btn-custom btn-outline-warning"><i className='' /> 50.000 VNĐ</label>
 
-                                            <input type="radio" className="btn-check" name="btnradio" id="btnradio3" onChange={() => setAmount(1)} />
-                                            <label htmlFor='btnradio3' className="btn btn-custom btn-outline-warning"><i className='fa fa-indian-rupee' /> 1000</label>
+                                            <input type="radio" className="btn-check" name="btnradio" id="btnradio3" onChange={() => setAmount(1000)} />
+                                            <label htmlFor='btnradio3' className="btn btn-custom btn-outline-warning"><i className='' /> 100.000 VNĐ</label>
                                         </div>
-                                        <div>
-                                            <button className="btn btn-custom" type="submit" style={{ borderRadius: "12px" }}>Donate Now</button>
+
+                                        {/* Input cho số tiền tuỳ chọn */}
+                                        <div className="control-group mt-3">
+                                            <input
+                                                type="text" // Đổi từ "number" sang "text" để xử lý định dạng
+                                                className="form-control"
+                                                placeholder="Hoặc nhập số tiền khác..."
+                                                value={amount.toLocaleString('vi-VN')} // Hiển thị số tiền với định dạng
+                                                onChange={(e) => {
+                                                    const rawValue = e.target.value.replace(/\./g, ''); // Loại bỏ dấu chấm
+                                                    const numericValue = Number(rawValue);
+                                                    if (!isNaN(numericValue) && numericValue >= 5000) {
+                                                        setAmount(numericValue); // Cập nhật giá trị nếu hợp lệ
+                                                    }
+                                                }}
+                                            />
+                                        </div>
+
+                                        <div className="mt-3">
+                                            <button className="btn btn-custom" type="submit" style={{ borderRadius: "12px" }}>
+                                                Donate Now
+                                            </button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

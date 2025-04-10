@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import Carousel from "react-spring-3d-carousel";
 import { v4 as uuidv4 } from "uuid";
 import { config } from "react-spring";
-import sudhaar from '../assets/Initiatives/Sudhaar.png';
-import gyaan from '../assets/Initiatives/Gyaan.png';
-import nirmaan from '../assets/Initiatives/Nirmaan.png';
-import gogreen from '../assets/Initiatives/Go-Green.png';
-import muskaan from '../assets/Initiatives/Muskaan.png';
+import LaoCai25 from '../assets/Initiatives/NVC_LC25.jpg';
+import YenBai23 from '../assets/Initiatives/NVC_YB23.jpg';
+import SonLa23 from '../assets/Initiatives/NVC_SL23.jpg';
+import HaGiang24 from '../assets/Initiatives/NVC_HG24.jpg';
+import TuyenQuang24 from '../assets/Initiatives/NVC_TQ24.jpg';
 import '../css/initiatives.css';
 
 const Initiatives = () => {
@@ -21,52 +21,52 @@ const Initiatives = () => {
   const InCards = [
     {
       key: uuidv4(),
-      content: <img src={sudhaar} alt="1" />,
+      content: <img src={LaoCai25} alt="1" />,
       link: "https://www.facebook.com/nangvungcao/videos/993069842893495/?comment_id=519562401225247&reply_comment_id=2489363814747337&notif_id=1744031324071958&notif_t=comment_mention&ref=notif"
     },
     {
       key: uuidv4(),
-      content: <img src={gyaan} alt="2" />,
+      content: <img src={YenBai23} alt="2" />,
       link: "https://swd.vit.edu/flagship/utkrash/utkarsh.html"
     },
     {
       key: uuidv4(),
-      content: <img src={nirmaan} alt="3" />,
+      content: <img src={SonLa23} alt="3" />,
       link: "https://youtu.be/9xoo9GvsK5o?list=TLGGZyE3b9VU8G8yNDAyMjAyNA"
     },
     {
       key: uuidv4(),
-      content: <img src={gogreen} alt="4" />,
+      content: <img src={HaGiang24} alt="4" />,
       link: "https://youtu.be/eifgT3ustW0?list=TLGGYDK2KB_YQJMyNDAyMjAyNA"
     },
     {
       key: uuidv4(),
-      content: <img src={muskaan} alt="5" />,
+      content: <img src={TuyenQuang24} alt="5" />,
       link: "https://swd.vit.edu/flagship/blood-d/blood.html"
     },
     {
       key: uuidv4(),
-      content: <img src={sudhaar} alt="1" />,
+      content: <img src={LaoCai25} alt="1" />,
       link: "https://swd.vit.edu/flagship/rr/rr.html"
     },
     {
       key: uuidv4(),
-      content: <img src={gyaan} alt="2" />,
+      content: <img src={YenBai23} alt="2" />,
       link: "https://swd.vit.edu/flagship/aatmabodh/aatmabodh.html"
     },
     {
       key: uuidv4(),
-      content: <img src={nirmaan} alt="3" />,
+      content: <img src={SonLa23} alt="3" />,
       link: "https://youtu.be/9xoo9GvsK5o?list=TLGGZyE3b9VU8G8yNDAyMjAyNA"
     },
     {
       key: uuidv4(),
-      content: <img src={gogreen} alt="4" />,
+      content: <img src={HaGiang24} alt="4" />,
       link: "https://youtu.be/eifgT3ustW0?list=TLGGYDK2KB_YQJMyNDAyMjAyNA"
     },
     {
       key: uuidv4(),
-      content: <img src={muskaan} alt="5" />,
+      content: <img src={TuyenQuang24} alt="5" />,
       link: "https://swd.vit.edu/flagship/blood-d/blood.html"
     },
   ].map((slide, index) => {
