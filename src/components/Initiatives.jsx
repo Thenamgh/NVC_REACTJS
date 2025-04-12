@@ -27,47 +27,47 @@ const Initiatives = () => {
     {
       key: uuidv4(),
       content: <img src={YenBai23} alt="2" />,
-      link: "https://swd.vit.edu/flagship/utkrash/utkarsh.html"
+      link: "https://www.facebook.com/share/p/1AM2btwjn1/"
     },
     {
       key: uuidv4(),
       content: <img src={SonLa23} alt="3" />,
-      link: "https://youtu.be/9xoo9GvsK5o?list=TLGGZyE3b9VU8G8yNDAyMjAyNA"
+      link: "https://www.facebook.com/nangvungcao/posts/pfbid0cSYtgTb7iTdc55UGw9DfR77WsL91pZbpmKWBsAjpwB2vVzu1fpYy4NPiHz7Riw7pl"
     },
     {
       key: uuidv4(),
       content: <img src={HaGiang24} alt="4" />,
-      link: "https://youtu.be/eifgT3ustW0?list=TLGGYDK2KB_YQJMyNDAyMjAyNA"
+      link: "https://www.facebook.com/share/p/1BMYt2GNHW/"
     },
     {
       key: uuidv4(),
       content: <img src={TuyenQuang24} alt="5" />,
-      link: "https://swd.vit.edu/flagship/blood-d/blood.html"
+      link: "https://www.facebook.com/share/p/19MMuoa1kU/"
     },
     {
       key: uuidv4(),
       content: <img src={LaoCai25} alt="1" />,
-      link: "https://swd.vit.edu/flagship/rr/rr.html"
+      link: "https://www.facebook.com/nangvungcao/videos/993069842893495/?comment_id=519562401225247&reply_comment_id=2489363814747337&notif_id=1744031324071958&notif_t=comment_mention&ref=notif"
     },
     {
       key: uuidv4(),
       content: <img src={YenBai23} alt="2" />,
-      link: "https://swd.vit.edu/flagship/aatmabodh/aatmabodh.html"
+      link: "https://www.facebook.com/share/p/1AM2btwjn1/"
     },
     {
       key: uuidv4(),
       content: <img src={SonLa23} alt="3" />,
-      link: "https://youtu.be/9xoo9GvsK5o?list=TLGGZyE3b9VU8G8yNDAyMjAyNA"
+      link: "https://www.facebook.com/nangvungcao/posts/pfbid0cSYtgTb7iTdc55UGw9DfR77WsL91pZbpmKWBsAjpwB2vVzu1fpYy4NPiHz7Riw7pl"
     },
     {
       key: uuidv4(),
       content: <img src={HaGiang24} alt="4" />,
-      link: "https://youtu.be/eifgT3ustW0?list=TLGGYDK2KB_YQJMyNDAyMjAyNA"
+      link: "https://www.facebook.com/share/p/1BMYt2GNHW/"
     },
     {
       key: uuidv4(),
       content: <img src={TuyenQuang24} alt="5" />,
-      link: "https://swd.vit.edu/flagship/blood-d/blood.html"
+      link: "https://www.facebook.com/share/p/19MMuoa1kU/"
     },
   ].map((slide, index) => {
     return {
