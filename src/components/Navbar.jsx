@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import NewsPage from '../pages/NewsPage';
 import '../css/navbar.css';
 
 export default function Navbar() {
@@ -84,16 +85,18 @@ export default function Navbar() {
                         <div className="navbar-nav ml-auto">
                             <Link to="/" className={`nav-item nav-link ${path === '/' ? "active" : ""}`}>Trang chủ</Link>
                             <Link to="/about" className={`nav-item nav-link ${path === '/about' ? "active" : ""}`}>Chúng tôi</Link>
-                            <Link to="/event" className={`nav-item nav-link ${path === '/event' ? "active" : ""}`}>Hoạt động</Link>
+                            <Link to="/events" className={`nav-item nav-link ${path === '/events' ? "active" : ""}`}>Hoạt động</Link>
+                            <Link to="/news" className={`nav-item nav-link ${path === '/news' ? "active" : ""}`}>Tin Tức</Link>
+
                             <div className="nav-item dropdown" onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => setDropdownOpen(false)}>
-                                <Link to="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Pages</Link>
+                                <Link to="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Trang chủ</Link>
                                 <div className={dropdownOpen ? "dropdown-menu show" : "dropdown-menu"}>
-                                    <Link to="/" className="dropdown-item">Detail Page</Link>
-                                    <Link to="/about" className="dropdown-item">What We Do</Link>
-                                    <Link to="/event" className="dropdown-item">Meet The Team</Link>
-                                    <Link to="/contact" className="dropdown-item">Become A Volunteer</Link>
+                                    <Link to="/" className="dropdown-item">Trang chi tiết</Link>
+                                    <Link to="/about" className="dropdown-item">Hoạt động </Link>
+                                    <Link to="/event" className="dropdown-item">Đội ngũ</Link>
+                                    <Link to="/contact" className="dropdown-item">Trở thành TNV</Link>
                                     <hr className='dropdown-divider' />
-                                    <Link to="/donate" className="dropdown-item">Donate Now</Link>
+                                    <Link to="/donate" className="dropdown-item">Ủng hộ </Link>
                                 </div>
                             </div>
                             <Link to="/contact" className={`nav-item nav-link ${path === '/contact' ? "active" : ""}`}>Liên hệ</Link>

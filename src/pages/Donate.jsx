@@ -274,11 +274,11 @@ export default function Donate() {
                                 <div className="donate-content">
                                     <div className="section-header">
                                         <p>Donate Now</p>
-                                        <h2>Let's donate to needy people for better lives</h2>
+                                        <h2>Chung tay cùng Nắng mang yêu thương đến những điểm trường vùng cao</h2>
                                     </div>
                                     <div className="donate-text">
                                         <p>
-                                            Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non. Aliquam metus tortor, auctor id gravida, viverra quis sem. Curabitur non nisl nec nisi maximus. Aenean convallis porttitor. Aliquam interdum at lacus non blandit.
+                                            Hành trình đến với các trường mầm non khó khăn nơi núi rừng xa xôi không chỉ mang theo quà tặng mà còn là tình yêu thương và hy vọng. Mỗi đóng góp của bạn là một ngọn nắng nhỏ sưởi ấm trái tim trẻ thơ nơi vùng cao. Hãy cùng chúng tôi lan tỏa điều tốt đẹp!
                                         </p>
                                     </div>
                                 </div>
@@ -321,24 +321,6 @@ export default function Donate() {
                                             <input type="radio" className="btn-check" name="btnradio" id="btnradio3" onChange={() => setAmount(1000)} />
                                             <label htmlFor='btnradio3' className="btn btn-custom btn-outline-warning"><i className='' /> 100.000 VNĐ</label>
                                         </div>
-
-                                        {/* Input cho số tiền tuỳ chọn */}
-                                        <div className="control-group mt-3">
-                                            <input
-                                                type="text" // Đổi từ "number" sang "text" để xử lý định dạng
-                                                className="form-control"
-                                                placeholder="Hoặc nhập số tiền khác..."
-                                                value={amount.toLocaleString('vi-VN')} // Hiển thị số tiền với định dạng
-                                                onChange={(e) => {
-                                                    const rawValue = e.target.value.replace(/\./g, ''); // Loại bỏ dấu chấm
-                                                    const numericValue = Number(rawValue);
-                                                    if (!isNaN(numericValue) && numericValue >= 5000) {
-                                                        setAmount(numericValue); // Cập nhật giá trị nếu hợp lệ
-                                                    }
-                                                }}
-                                            />
-                                        </div>
-
                                         <div className="mt-3">
                                             <button className="btn btn-custom" type="submit" style={{ borderRadius: "12px" }}>
                                                 Donate Now

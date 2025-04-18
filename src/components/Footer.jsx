@@ -23,8 +23,8 @@ export default function Footer() {
                     <div className="col-lg-3 col-md-5">
                         <div className="footer-link">
                             <h2>Popular Links</h2>
-                            <a href="/about">About Us</a>
-                            <a href="/contact">Contact Us</a>
+                            <a href="/about">Về Nắng</a>
+                            <a href="/contact">Liên hệ</a>
                             <a href="/event">Popular Causes</a>
                             <a href="/event">Upcoming Events</a>
                             <a href="#">Latest Blog</a>
@@ -46,7 +46,7 @@ export default function Footer() {
                             <form name='NewsLetter'>
                                 <input name='subscribe' className="form-control" placeholder="Điền email tại đây" autoComplete='email' required />
                                 <button className="btn btn-custom">Submit</button>
-                                <h6>Yên tâm nhé, chúng tôi không làm phiền bạn bằng thư rác đâu!</h6>
+                                <h6>Yên tâm nhé, Nắng không làm phiền bạn bằng thư rác đâu!</h6>
                             </form>
                         </div>
                     </div>

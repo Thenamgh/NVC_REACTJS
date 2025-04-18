@@ -13,10 +13,12 @@ export default function Landing() {
                 </div>
                 <div className="titles">
                     <div className="caption2">
-                        <p>Tại <span>Nắng Vùng Cao,</span> chúng tôi làm việc hướng tới sự phát triển của xã hội</p>
+                        <p>Tại <span>Nắng Vùng Cao,</span></p>
                     </div>
                     <div className="caption3">
-                        <p>Hãy mang lại sự thay đổi cho xã hội bằng cách dang tay giúp đỡ những trẻ em kém may mắn và các cộng đồng khó khăn khác.</p>
+                        <p>chúng tôi luôn hướng về những điểm trường mầm non nơi vùng núi xa xôi – nơi những em nhỏ còn thiếu thốn cả về điều kiện học tập lẫn cuộc sống thường ngày.
+
+                            Chúng tôi tin rằng mỗi hành động nhỏ đều có thể mang lại sự thay đổi lớn. Hãy cùng chúng tôi gieo những hạt mầm yêu thương, tiếp thêm hy vọng và thắp sáng tương lai cho các em nhỏ vùng cao.</p>
                     </div>
                     <div className="btns">
                         <button onClick={() => window.open("https://www.facebook.com/nangvungcao", "_blank", "noopener noreferrer")} type="button" className="btn btn-outline-info">Know More</button>

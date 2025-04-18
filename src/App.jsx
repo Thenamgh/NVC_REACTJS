@@ -1,25 +1,23 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Events from "./pages/Events";
-import Contact from "./pages/Contact";
-import Donate from "./pages/Donate";
-import SignUp from "./pages/SignUp";
-import Admin from "./pages/Admin";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Home from './pages/Home'; // Trang chủ
+import NewsPage from './pages/NewsPage'; // Trang tin tức
+import About from './pages/About'; // Trang giới thiệu
+import Events from './pages/Events'; // Trang sự kiện
+import Donate from './pages/Donate';
 
-export default function App() {
+function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/event" element={<Events />} />
-        <Route exact path="/contact" element={<Contact />} />
-        <Route exact path="/donate" element={<Donate />} />
-        <Route exact path="/signup" element={<SignUp />} />
-        <Route exact path="/admin" element={<Admin />} />
-        <Route exact path="*" element={<Navigate to={"/"} />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/news" element={<NewsPage />} />
+        <Route path="about" element={<About />} />
+        <Route path="/events" element={<Events />} /> {/* Thay thế bằng component chi tiết bài viết */}
+        <Route path="/donate" element={<Donate />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
+
+export default App;
