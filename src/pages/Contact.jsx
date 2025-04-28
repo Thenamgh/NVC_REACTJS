@@ -8,7 +8,7 @@ export default function Contact() {
     return (
         <>
             <Navbar />
-            <PageHeader title="Contact Us" path="contact" name="Contact" />
+            <PageHeader title="Contact Us" path="/contact" name="Contact" />
             <ContactForm />
             <Footer />
             <BackToTop />

@@ -7,6 +7,9 @@ import YenBai23 from '../assets/Initiatives/NVC_YB23.jpg';
 import SonLa23 from '../assets/Initiatives/NVC_SL23.jpg';
 import HaGiang24 from '../assets/Initiatives/NVC_HG24.jpg';
 import TuyenQuang24 from '../assets/Initiatives/NVC_TQ24.jpg';
+
+/*Đội ngũ CLB*/
+
 import '../css/initiatives.css';
 
 const Initiatives = () => {
@@ -114,6 +117,7 @@ const Initiatives = () => {
         </svg>
       </div>
     </div>
+
   )
 }
 

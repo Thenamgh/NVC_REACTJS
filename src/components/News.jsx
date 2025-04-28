@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import ReactQuill from 'react-quill';
+import Slider from 'react-slick'
 import 'react-quill/dist/quill.snow.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import '../css/newsForm.css';
 
 function News() {
@@ -46,19 +48,29 @@ function News() {
         setPreviewImage(null);
         setIsModalOpen(false); // Đóng modal sau khi đăng bài
     };
+    const sliderSettings = {
+
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+    };
 
     return (
         <div className="news-container">
             {/* Nút mở modal */}
-            <button
+            {/* <button
                 className="btn btn-primary"
                 onClick={() => setIsModalOpen(true)}
             >
                 Tạo bài viết
-            </button>
+            </button> */}
 
             {/* Modal Form */}
-            {isModalOpen && (
+            {/* {isModalOpen && (
                 <div className="modal-overlay">
                     <div className="modal-content">
                         <button
@@ -110,29 +122,31 @@ function News() {
                         </form>
                     </div>
                 </div>
-            )}
+            )} */}
 
             {/* Danh sách bài viết */}
-            <div className="articles-list">
-                <h2>Danh sách bài viết</h2>
+            <div className="articles-slider">
+                <h2>Slide bài viết</h2>
                 {articles.length === 0 ? (
                     <p>Chưa có bài viết nào.</p>
                 ) : (
-                    articles.map((article, index) => (
-                        <div key={index} className="article-item">
-                            <h3>{article.title}</h3>
-                            <div
-                                dangerouslySetInnerHTML={{ __html: article.content }}
-                            />
-                            {article.image && (
-                                <img
-                                    src={article.image}
-                                    alt="Article"
-                                    className="article-image"
+                    <Slider {...sliderSettings}>
+                        {articles.map((article, index) => (
+                            <div key={index} className="article-slide">
+                                <h3>{article.title}</h3>
+                                <div
+                                    dangerouslySetInnerHTML={{ __html: article.content }}
                                 />
-                            )}
-                        </div>
-                    ))
+                                {article.image && (
+                                    <img
+                                        src={article.image}
+                                        alt="Article"
+                                        className="article-image"
+                                    />
+                                )}
+                            </div>
+                        ))}
+                    </Slider>
                 )}
             </div>
         </div>

@@ -1,0 +1,153 @@
+.CoreTeam {
+    background: linear-gradient(90deg, rgb(1, 24, 54) 11.2%, rgba(0, 37, 84, 0.8) 100.2%);
+    padding: 20px 0 70px 0;
+    /* Giảm padding top xuống 20px, bottom 70px */
+}
+
+
+.title {
+    text-align: center;
+}
+
+.title h1 {
+    font-family: raleway;
+    font-weight: 700;
+    font-size: 3em;
+    color: #CECECE;
+    margin-bottom: 30px;
+}
+
+.coreteam-swiper {
+    width: 100%;
+    max-width: 1200px;
+    /* hoặc rộng hơn tùy ý */
+    overflow: visible;
+    margin: 0 auto;
+    position: relative;
+}
+
+.member-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    width: 100%;
+    height: 400px;
+    /* bình thường */
+    padding: 10px 0;
+}
+
+.swiper-slide-active .member-slide {
+    height: 00px;
+    /* Slide trung tâm */
+}
+
+.member-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+}
+
+/* Slide trung tâm */
+.swiper-slide-active .member-image {
+    transform: scale(1.5);
+    transform: scale(1.3);
+}
+
+/* Slide phụ */
+.swiper-slide:not(.swiper-slide-active) .member-image {
+    transform: scale(0.8);
+    opacity: 0.3;
+    /* <<< Mờ nhiều hơn slide phụ */
+}
+
+/* Tên thành viên */
+.member-name {
+    margin-top: 1em;
+    width: 250px;
+    color: #FDBE33;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+}
+
+.member-position {
+    margin-top: 0.5em;
+    width: 360px;
+    color: #FDBE33;
+    font-size: 1em;
+    font-weight: normal;
+    text-align: center;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.2;
+}
+
+/* Slide trung tâm - Tên thành viên */
+.swiper-slide-active .member-name {
+    font-size: 1.6em;
+    margin-top: 2em;
+}
+
+.swiper-slide-active .member-position {
+    font-size: 1.3em;
+}
+
+/* Slide bên ngoài */
+.swiper-slide:not(.swiper-slide-active) .member-image {
+    transform: scale(0.9);
+    opacity: 0.3;
+    /* <<< mờ hơn nữa (giảm từ 0.5 xuống 0.3) */
+}
+
+/* Slide phụ - chữ mờ */
+.swiper-slide:not(.swiper-slide-active) .member-name,
+.swiper-slide:not(.swiper-slide-active) .member-position {
+    opacity: 0.3;
+    /* <<< chữ mờ giống ảnh */
+}
+
+/* Nút điều hướng */
+.coreteam-navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+    /* <<< tăng margin-top để nút cách xa chữ */
+}
+
+.custom-prev,
+.custom-next {
+    background: none;
+    border: none;
+    color: #FDBE33;
+    font-size: 2em;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.custom-prev:hover,
+.custom-next:hover {
+    color: #CECECE;
+}
+
+.custom-prev,
+.custom-next {
+    background: none;
+    border: none;
+    color: #FDBE33;
+    font-size: 2em;
+    margin: 0 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.custom-prev:hover,
+.custom-next:hover {
+    color: #CECECE;
+}

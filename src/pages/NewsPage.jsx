@@ -8,23 +8,33 @@ import News from '../components/News';
 
 export default function NewsPage() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [articles, setArticles] = useState([]); // Lưu danh sách bài viết
 
     const handleSubmit = (e) => {
         e.preventDefault();
         alert('Bài viết đã được đăng!');
         setIsModalOpen(false);
     };
+    const handleCreateArticle = () => {
+        console.log("Tạo bài viết mới!");
+    };
+
+    handleCreateArticle = (newArticle) => {
+        setArticles([...articles, newArticle]); // Lưu bài viết vào danh sách
+    }
+
 
     return (
         <>
             {/* Thanh Navbar cố định */}
-            <Navbar onCreateArticle={() => setIsModalOpen(true)} />
+            <Navbar onCreateArticle={() => setIsModalOpen(true)} onSubmitArticle={handleCreateArticle} />
 
             {/* Nội dung trang */}
             <PageHeader title="Tin tức" path="/news" name="Tin tức" />
+            <News articles={articles} />
             <News />
 
-            {/* Modal Form */}
+            Modal Form
             {isModalOpen && (
                 <div className="modal-overlay">
                     <div className="modal-content">

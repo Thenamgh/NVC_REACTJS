@@ -5,7 +5,7 @@ import ReactQuill from 'react-quill';
 
 import '../css/navbar.css';
 
-export default function Navbar() {
+export default function Navbar({ onCreateArticle, onSubmitArticle }) {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [auth, setAuth] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false); // Trạng thái mở/đóng modal
@@ -54,7 +54,10 @@ export default function Navbar() {
         });
         setPreviewImage(null);
         setIsModalOpen(false); // Đóng modal sau khi đăng bài
+        onSubmitArticle();     // <--- Phải gọi hàm
     };
+
+
 
     return (
         <>
