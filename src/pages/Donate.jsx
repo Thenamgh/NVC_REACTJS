@@ -49,6 +49,31 @@ export default function Donate() {
             .then((response) => { setRecentLogin(response.data); })
             .catch(() => { localStorage.removeItem('NGO'); alert("Server Authentication Failed!\nLogin Again."); window.location.reload(); });
     };
+    const handlePayOSCheckout = async () => {
+        try {
+            const res = await fetch("http://localhost:8080/create-payment-link", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    amount: amount * 1000,
+                }),
+            });
+
+            const data = await res.json();
+            if (data?.checkoutUrl) {
+                window.location.href = data.checkoutUrl;
+            } else {
+                alert("Không lấy được đường dẫn thanh toán!");
+            }
+        } catch (error) {
+            console.error("Lỗi tạo link PayOS:", error);
+            alert("Không thể tạo link thanh toán. Vui lòng thử lại.");
+        }
+    };
 
     function loadScript(src) {
         return new Promise((resolve) => {
@@ -248,7 +273,7 @@ export default function Donate() {
     return (
         <>
             <Navbar />
-            {showPopup ? <div className='popUp'>
+            {/* {showPopup ? <div className='popUp'>
                 <div className='popup-content'>
                     <div className="closeBtn">
                         <button type="button" className="btn-close" aria-label="Close" onClick={() => { setShowPopup(!showPopup) }}></button>
@@ -261,7 +286,7 @@ export default function Donate() {
                         <button type="button" className="btn btn-success" onClick={showLogin ? handleLogin : handleEmail}>{showLogin ? "LogIn" : "Continue"}</button>
                     </div>
                 </div>
-            </div> : null}
+            </div> : null} */}
             <PageHeader title={"Donate Now"} path={"/donate"} name={"Donate"} />
 
             {/* <!-- Donate Start --> */}
@@ -289,45 +314,60 @@ export default function Donate() {
                                         <div className="control-group">
                                             <input
                                                 onChange={(e) => setName(e.target.value)}
-                                                id='name'
+                                                id="name"
                                                 type="text"
                                                 className="form-control"
-                                                placeholder="Name"
+                                                placeholder="Họ và tên"
                                                 required
-                                                autoComplete='name'
+                                                autoComplete="name"
+                                                value={name}
                                             />
                                         </div>
                                         <div className="control-group">
                                             <input
                                                 onChange={(e) => setEmail(e.target.value)}
-                                                value={email}
-                                                id='email'
+                                                id="email"
                                                 type="email"
                                                 className="form-control"
                                                 placeholder="Email"
-                                                disabled={showLogin}
                                                 required
-                                                autoComplete='email'
+                                                autoComplete="email"
+                                                value={email}
+                                                disabled={showLogin}
                                             />
                                         </div>
 
-                                        <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                            <input type="radio" className="btn-check" name="btnradio" id="btnradio1" defaultChecked onChange={() => setAmount(100)} />
-                                            <label htmlFor='btnradio1' className="btn btn-custom btn-outline-warning"><i className='' /> 20.000 VNĐ</label>
+                                        <div className="btn-group" role="group" aria-label="Chọn số tiền">
+                                            <input type="radio" className="btn-check" name="btnradio" id="btnradio1" defaultChecked onChange={() => setAmount(20)} />
+                                            <label htmlFor="btnradio1" className={`btn btn-success ${amount === 20 ? 'active' : ''}`}>20.000 VNĐ</label>
 
-                                            <input type="radio" className="btn-check" name="btnradio" id="btnradio2" onChange={() => setAmount(500)} />
-                                            <label htmlFor='btnradio2' className="btn btn-custom btn-outline-warning"><i className='' /> 50.000 VNĐ</label>
+                                            <input type="radio" className="btn-check" name="btnradio" id="btnradio2" onChange={() => setAmount(50)} />
+                                            <label htmlFor="btnradio2" className={`btn btn-success ${amount === 50 ? 'active' : ''}`}>50.000 VNĐ</label>
 
-                                            <input type="radio" className="btn-check" name="btnradio" id="btnradio3" onChange={() => setAmount(1000)} />
-                                            <label htmlFor='btnradio3' className="btn btn-custom btn-outline-warning"><i className='' /> 100.000 VNĐ</label>
+                                            <input type="radio" className="btn-check" name="btnradio" id="btnradio3" onChange={() => setAmount(100)} />
+                                            <label htmlFor="btnradio3" className={`btn btn-success ${amount === 100 ? 'active' : ''}`}>100.000 VNĐ</label>
                                         </div>
+
                                         <div className="mt-3">
-                                            <button className="btn btn-custom" type="submit" style={{ borderRadius: "12px" }}>
+                                            <button className="btn btn-success w-100" type="submit" style={{ borderRadius: "12px", height: "50px", fontWeight: 600 }}>
                                                 Donate Now
+                                            </button>
+                                        </div>
+
+                                        <div className="mt-2">
+                                            <button
+                                                type="button"
+                                                className="btn btn-outline-success w-100"
+                                                style={{ borderRadius: "12px", height: "50px", fontWeight: 600 }}
+                                                onClick={handlePayOSCheckout}
+                                            >
+                                                Thanh toán qua PayOS
                                             </button>
                                         </div>
                                     </form>
                                 </div>
+
+
                             </div>
 
                         </div>

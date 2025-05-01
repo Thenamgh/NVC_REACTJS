@@ -128,6 +128,12 @@ export default function Navbar({ onCreateArticle, onSubmitArticle }) {
 
             {/* Navbar */}
             <div className="navbar navbar-expand-lg bg-dark navbar-dark">
+                <img
+                    src={require("../assets/NVC++/NVC_LOGO.png")}
+                    alt=""
+                    style={{ height: "50px", marginRight: "12px" }}
+                />
+
                 <div className="container-fluid">
                     <Link to="/" className="navbar-brand">
                         NẮNG VÙNG CAO
@@ -154,6 +160,9 @@ export default function Navbar({ onCreateArticle, onSubmitArticle }) {
                             </Link>
                             <Link to="/news" className={`nav-item nav-link ${path === '/news' ? "active" : ""}`}>
                                 Tin Tức
+                            </Link>
+                            <Link to="/donate" className={`nav-item nav-link ${path === '/donate' ? "active" : ""}`}>
+                                Donate
                             </Link>
                             <Link to="/contact" className={`nav-item nav-link ${path === '/contact' ? "active" : ""}`}>
                                 Liên hệ
