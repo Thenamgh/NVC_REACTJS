@@ -51,21 +51,26 @@ export default function Donate() {
     };
     const handlePayOSCheckout = async () => {
         try {
-            const res = await fetch("http://localhost:8080/create-payment-link", {
+            const res = await fetch("https://nvc-spring-production.up.railway.app/order/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    amount: amount * 1000,
+                    productName: name,
+                    description: email,
+                    price: 1000 * 1000,
+                    returnUrl:"http://localhost:3000",
+                    cancelUrl: "http://localhost:3000/donate",
                 }),
             });
 
             const data = await res.json();
-            if (data?.checkoutUrl) {
-                window.location.href = data.checkoutUrl;
+            console.log("PayOS response:", data);
+
+            if (data != null) {
+                // Navigate sang màn hiển thị QR, truyền data qua state
+                navigate('/qrcode', { state: data });
             } else {
                 alert("Không lấy được đường dẫn thanh toán!");
             }

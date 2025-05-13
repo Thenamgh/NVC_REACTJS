@@ -5,6 +5,7 @@ import NewsPage from './pages/NewsPage'; // Trang tin tức
 import About from './pages/About'; // Trang giới thiệu
 import Events from './pages/Events'; // Trang sự kiện
 import Donate from './pages/Donate';
+import QRCodePage from './pages/QRcode';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="/events" element={<Events />} /> {/* Thay thế bằng component chi tiết bài viết */}
         <Route path="/donate" element={<Donate />} />
+        <Route path="/qrcode" element={<QRCodePage />} />
       </Routes>
     </Router>
   );

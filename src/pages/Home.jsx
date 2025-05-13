@@ -3,12 +3,12 @@ import space from '../assets/Videofst.mp4';
 import '../css/home.css';
 import Initiatives from "../components/Initiatives";
 import Footer from "../components/Footer";
-import CoreTeam from "../components/CoreTeam";
 import ContactForm from "../components/ContactForm";
 import Landing from "../components/Landing";
 import Funds from "../components/Funds";
 import BackToTop from "../components/BackToTop";
 import News from "../components/News";
+import CoreTeam1 from "../components/Coreteam1";
 
 
 
@@ -26,7 +26,7 @@ export default function Home() {
             </div>
             <Landing />
             <Initiatives />
-            <CoreTeam />
+            <CoreTeam1 />
             <Funds />
             <News />
             <ContactForm />
