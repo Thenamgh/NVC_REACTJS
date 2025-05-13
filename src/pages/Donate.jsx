@@ -14,12 +14,13 @@ export default function Donate() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [recentLogin, setRecentLogin] = useState("");
-    const [amount, setAmount] = useState(100);
+    const [amount, setAmount] = useState(1000);
     const [showPopup, setShowPopup] = useState(true);
     const [showLogin, setShowLogin] = useState(false);
     const [isLogin, setIsLogin] = useState(false);
     const navigate = useNavigate();
     const MySwal = withReactContent(Swal);
+
 
     useEffect(() => {
         const loggedInUser = localStorage.getItem("NGO");
@@ -59,8 +60,8 @@ export default function Donate() {
                 body: JSON.stringify({
                     productName: name,
                     description: email,
-                    price: 1000 * 1000,
-                    returnUrl:"http://localhost:3000",
+                    price: amount,
+                    returnUrl: "http://localhost:3000/success",
                     cancelUrl: "http://localhost:3000/donate",
                 }),
             });
@@ -79,6 +80,15 @@ export default function Donate() {
             alert("Không thể tạo link thanh toán. Vui lòng thử lại.");
         }
     };
+    const handleQuickPay = async (selectedAmount) => {
+        if (!name.trim() || !email.trim()) {
+            alert("Vui lòng nhập Họ tên và Email trước khi chọn mệnh giá.");
+            return;
+        }
+
+
+    };
+
 
     function loadScript(src) {
         return new Promise((resolve) => {
@@ -341,21 +351,29 @@ export default function Donate() {
                                                 disabled={showLogin}
                                             />
                                         </div>
+                                        <div className="control-group">
+                                            <input
+                                                type="number"
+                                                min={1000}
+                                                className="form-control"
+                                                placeholder="Nhập số tiền muốn ủng hộ (VNĐ)"
+                                                value={amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
+                                                onChange={(e) => {
+                                                    const raw = e.target.value.replace(/\./g, ""); // bỏ dấu chấm
+                                                    if (/^\d*$/.test(raw)) setAmount(raw);         // chỉ chấp nhận số
+                                                }}
+                                            />
 
-                                        <div className="btn-group" role="group" aria-label="Chọn số tiền">
-                                            <input type="radio" className="btn-check" name="btnradio" id="btnradio1" defaultChecked onChange={() => setAmount(20)} />
-                                            <label htmlFor="btnradio1" className={`btn btn-success ${amount === 20 ? 'active' : ''}`}>20.000 VNĐ</label>
-
-                                            <input type="radio" className="btn-check" name="btnradio" id="btnradio2" onChange={() => setAmount(50)} />
-                                            <label htmlFor="btnradio2" className={`btn btn-success ${amount === 50 ? 'active' : ''}`}>50.000 VNĐ</label>
-
-                                            <input type="radio" className="btn-check" name="btnradio" id="btnradio3" onChange={() => setAmount(100)} />
-                                            <label htmlFor="btnradio3" className={`btn btn-success ${amount === 100 ? 'active' : ''}`}>100.000 VNĐ</label>
                                         </div>
-
-                                        <div className="mt-3">
-                                            <button className="btn btn-success w-100" type="submit" style={{ borderRadius: "12px", height: "50px", fontWeight: 600 }}>
-                                                Donate Now
+                                        <div className="btn-group" role="group" aria-label="Chọn số tiền">
+                                            <button type="button" className="btn btn-success" onClick={() => handleQuickPay(20000)}>
+                                                20.000 VNĐ
+                                            </button>
+                                            <button type="button" className="btn btn-success" onClick={() => handleQuickPay(50000)}>
+                                                50.000 VNĐ
+                                            </button>
+                                            <button type="button" className="btn btn-success" onClick={() => handleQuickPay(100000)}>
+                                                100.000 VNĐ
                                             </button>
                                         </div>
 
@@ -365,9 +383,13 @@ export default function Donate() {
                                                 className="btn btn-outline-success w-100"
                                                 style={{ borderRadius: "12px", height: "50px", fontWeight: 600 }}
                                                 onClick={handlePayOSCheckout}
+                                                disabled={!name.trim() || !email.trim() || isNaN(amount) || Number(amount) <= 0}
+
                                             >
                                                 Thanh toán qua PayOS
                                             </button>
+
+
                                         </div>
                                     </form>
                                 </div>

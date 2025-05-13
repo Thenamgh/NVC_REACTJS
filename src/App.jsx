@@ -6,6 +6,7 @@ import About from './pages/About'; // Trang giới thiệu
 import Events from './pages/Events'; // Trang sự kiện
 import Donate from './pages/Donate';
 import QRCodePage from './pages/QRcode';
+import Success from './pages/Success';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/events" element={<Events />} /> {/* Thay thế bằng component chi tiết bài viết */}
         <Route path="/donate" element={<Donate />} />
         <Route path="/qrcode" element={<QRCodePage />} />
+        <Route path="/success" element={<Success />} />
       </Routes>
     </Router>
   );
