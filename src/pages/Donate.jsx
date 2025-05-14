@@ -85,6 +85,7 @@ export default function Donate() {
             alert("Vui lòng nhập Họ tên và Email trước khi chọn mệnh giá.");
             return;
         }
+        setAmount(selectedAmount);
 
 
     };
