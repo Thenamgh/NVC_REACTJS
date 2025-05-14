@@ -315,3 +315,12 @@
     border-radius: 8px;
     margin-top: 10px;
 }
+
+.article-item:hover {
+    border: 1px solid #007bff;
+    background-color: #f0f8ff;
+}
+
+.article-slide {
+    padding: 0 10px;
+}

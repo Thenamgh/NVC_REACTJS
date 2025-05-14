@@ -15,13 +15,10 @@ export default function NewsPage() {
         alert('Bài viết đã được đăng!');
         setIsModalOpen(false);
     };
-    const handleCreateArticle = () => {
-        console.log("Tạo bài viết mới!");
+    const handleCreateArticle = (newArticle) => {
+        setArticles((prev) => [...prev, newArticle]);
     };
 
-    handleCreateArticle = (newArticle) => {
-        setArticles([...articles, newArticle]); // Lưu bài viết vào danh sách
-    }
 
 
     return (

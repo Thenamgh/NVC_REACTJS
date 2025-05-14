@@ -63,6 +63,7 @@ export default function Donate() {
                     price: amount,
                     returnUrl: "http://localhost:3000/success",
                     cancelUrl: "http://localhost:3000/donate",
+                    nextUrl: "http://localhost:3000/PaymentSuccess",
                 }),
             });
 
@@ -389,6 +390,18 @@ export default function Donate() {
                                             >
                                                 Thanh toán qua PayOS
                                             </button>
+                                            <div className="mt-3">
+
+                                                <button
+                                                    type="button"
+                                                    className="btn btn-secondary w-100"
+                                                    style={{ borderRadius: "12px", height: "50px", fontWeight: 600 }}
+                                                    onClick={() => navigate('/success')}
+                                                >
+                                                    Xem thử giao diện thành công
+                                                </button>
+                                            </div>
+
 
 
                                         </div>
@@ -397,7 +410,6 @@ export default function Donate() {
 
 
                             </div>
-
                         </div>
                     </div>
                 </div>

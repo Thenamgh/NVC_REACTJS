@@ -126,15 +126,16 @@ function News() {
 
             {/* Danh sách bài viết */}
             <div className="articles-slider">
-                <h2>Slide bài viết</h2>
+                <h2 className="articles-title">Slide bài viết</h2>
                 {articles.length === 0 ? (
-                    <p>Chưa có bài viết nào.</p>
+                    <p className="no-articles">Chưa có bài viết nào.</p>
                 ) : (
                     <Slider {...sliderSettings}>
                         {articles.map((article, index) => (
-                            <div key={index} className="article-slide">
-                                <h3>{article.title}</h3>
+                            <div key={index} className="article-item">
+                                <h3 className="article-title">{article.title}</h3>
                                 <div
+                                    className="article-content"
                                     dangerouslySetInnerHTML={{ __html: article.content }}
                                 />
                                 {article.image && (
@@ -149,6 +150,7 @@ function News() {
                     </Slider>
                 )}
             </div>
+
         </div>
     );
 }
