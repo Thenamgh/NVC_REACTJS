@@ -1,11 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { QRCodeCanvas } from 'qrcode.react';
+import SockJS from 'sockjs-client';
+import { Client } from '@stomp/stompjs';
 
 const QRCodePage = () => {
     const { state } = useLocation();
     const navigate = useNavigate();
-    const [timeLeft, setTimeLeft] = useState(5 * 60); // 5 phút
+    const [timeLeft, setTimeLeft] = useState(15 * 60); // 15 phút
+    const [stompClient, setStompClient] = useState(null);
+
+    useEffect(() => {
+        const socket = new SockJS('https://nvc-spring-production.up.railway.app/ws');
+        const client = new Client({
+            webSocketFactory: () => socket,
+            debug: (str) => console.log(str),
+            onConnect: () => {
+                console.log('✅ WebSocket connected');
+                client.subscribe(`/topic/order/${state.data.paymentLinkId}`, (message) => {
+                    navigate('/success', {
+                        state: {
+                            data: "ok",
+                        },
+                    });
+                });
+            },
+            onStompError: (frame) => {
+                console.error('❌ STOMP error:', frame);
+            },
+        });
+
+        client.activate();
+        setStompClient(client);
+
+        return () => {
+            if (client && client.active) {
+                client.deactivate();
+                console.log('🔌 WebSocket disconnected');
+            }
+        };
+    }, [state.data.paymentLinkId]);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -20,7 +54,6 @@ const QRCodePage = () => {
         return () => clearInterval(timer);
     }, []);
 
-    // Hàm định dạng mm:ss
     const formatTime = (seconds) => {
         const m = Math.floor(seconds / 60);
         const s = seconds % 60;
@@ -31,19 +64,20 @@ const QRCodePage = () => {
         <div style={{ textAlign: 'center', marginTop: '40px' }}>
             <h3>Quét mã QR để ủng hộ</h3>
             <p>
-                QR sẽ hết hạn sau:{" "}
-                <strong style={{
-                    color:
-                        timeLeft > 180
-                            ? "green"
-                            : timeLeft > 60
-                                ? "#ffc107"
-                                : "red"
-                }}>
+                QR sẽ hết hạn sau:{' '}
+                <strong
+                    style={{
+                        color:
+                            timeLeft > 360
+                                ? 'green'
+                                : timeLeft > 180
+                                ? '#ffc107'
+                                : 'red',
+                    }}
+                >
                     {formatTime(timeLeft)}
                 </strong>
             </p>
-
 
             {timeLeft > 0 ? (
                 <QRCodeCanvas
@@ -65,7 +99,7 @@ const QRCodePage = () => {
                             color: '#fff',
                             borderRadius: '8px',
                             fontWeight: 'bold',
-                            cursor: 'pointer'
+                            cursor: 'pointer',
                         }}
                     >
                         Tạo lại QR

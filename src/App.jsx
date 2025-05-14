@@ -19,7 +19,6 @@ function App() {
         <Route path="/events" element={<Events />} /> {/* Thay thế bằng component chi tiết bài viết */}
         <Route path="/donate" element={<Donate />} />
         <Route path="/qrcode" element={<QRCodePage />} />
-        <Route path="/success" element={<Success />} />
         <Route path="/success" element={<PaymentSuccess />} />
       </Routes>
     </Router>
