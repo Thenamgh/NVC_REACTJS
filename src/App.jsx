@@ -1,14 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './pages/Home'; // Trang chủ
-import NewsPage from './pages/NewsPage'; // Trang tin tức
 import About from './pages/About'; // Trang giới thiệu
 import Events from './pages/Events'; // Trang sự kiện
 import Donate from './pages/Donate';
 import QRCodePage from './pages/QRcode';
-import Success from './pages/Success';
 import PaymentSuccess from './pages/PaymentSuccess';
-
+import TipTapEditor from './pages/TipTapEditor';
+import NewsPage from './pages/NewsPage';
 function App() {
   return (
     <Router>
@@ -20,6 +19,7 @@ function App() {
         <Route path="/donate" element={<Donate />} />
         <Route path="/qrcode" element={<QRCodePage />} />
         <Route path="/success" element={<PaymentSuccess />} />
+        <Route path="/edit" element={<TipTapEditor />} />
       </Routes>
     </Router>
   );
