@@ -391,15 +391,6 @@ export default function Donate() {
                                                 Thanh toán qua PayOS
                                             </button>
                                             <div className="mt-3">
-
-                                                <button
-                                                    type="button"
-                                                    className="btn btn-secondary w-100"
-                                                    style={{ borderRadius: "12px", height: "50px", fontWeight: 600 }}
-                                                    onClick={() => navigate('/success')}
-                                                >
-                                                    Xem thử giao diện thành công
-                                                </button>
                                             </div>
 
 

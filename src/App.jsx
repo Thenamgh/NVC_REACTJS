@@ -8,6 +8,7 @@ import QRCodePage from './pages/QRcode';
 import PaymentSuccess from './pages/PaymentSuccess';
 import TipTapEditor from './pages/TipTapEditor';
 import NewsPage from './pages/NewsPage';
+import RichEditor from './pages/RichEditor';
 function App() {
   return (
     <Router>
@@ -19,7 +20,7 @@ function App() {
         <Route path="/donate" element={<Donate />} />
         <Route path="/qrcode" element={<QRCodePage />} />
         <Route path="/success" element={<PaymentSuccess />} />
-        <Route path="/edit" element={<TipTapEditor />} />
+        <Route path="/edit" element={<RichEditor />} />
       </Routes>
     </Router>
   );

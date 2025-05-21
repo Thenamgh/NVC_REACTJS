@@ -1,0 +1,97 @@
+:root {
+    --primary-bg: #f7f9fc;
+    --sidebar-bg: #ffffff;
+    --button-bg: #edf2fa;
+    --button-hover: #dce7f9;
+    --button-active: #c8dbf3;
+    --text-color: #2d3e50;
+    --border-color: #ccd6e0;
+    --shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.rich-editor-container {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    background-color: var(--primary-bg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.rich-editor-sidebar {
+    width: 240px;
+    background-color: var(--sidebar-bg);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.rich-editor-sidebar h4 {
+    margin-bottom: 18px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.rich-editor-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.rich-editor-controls button {
+    padding: 8px 14px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.rich-editor-controls button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-1px);
+}
+
+.rich-editor-controls button:active {
+    background-color: var(--button-active);
+}
+
+.rich-editor-controls input[type="color"],
+.rich-editor-controls input[type="file"] {
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.rich-editor-content {
+    flex: 1;
+    min-height: 400px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: var(--shadow);
+    transition: border-color 0.2s;
+}
+
+.rich-editor-content:focus-within {
+    border-color: #6699cc;
+    outline: none;
+}
+
+.ProseMirror.is-editor-empty::before {
+    content: attr(data-placeholder);
+    color: #999;
+    float: left;
+    height: 0;
+    pointer-events: none;
+    font-style: italic;
+}

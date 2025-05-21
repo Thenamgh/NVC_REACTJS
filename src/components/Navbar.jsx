@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import NewsPage from '../pages/NewsPage';
 import ReactQuill from 'react-quill';
-
 import '../css/navbar.css';
 
 export default function Navbar({ onCreateArticle, onSubmitArticle }) {
@@ -130,14 +129,16 @@ export default function Navbar({ onCreateArticle, onSubmitArticle }) {
             <div className="navbar navbar-expand-lg bg-dark navbar-dark">
                 <img
                     src={require("../assets/NVC++/NVC_LOGO.png")}
-                    alt=""
-                    style={{ height: "50px", marginRight: "12px" }}
+                    alt="Logo"
+                    style={{ height: "80px", width: "auto", marginRight: "16px" }}
                 />
 
+
                 <div className="container-fluid">
-                    <Link to="/" className="navbar-brand">
+                    <Link to="/" className="navbar-brand" style={{ fontSize: "40px", fontWeight: "600" }}>
                         NẮNG VÙNG CAO
                     </Link>
+
                     <button
                         type="button"
                         className="navbar-toggler"
@@ -166,6 +167,9 @@ export default function Navbar({ onCreateArticle, onSubmitArticle }) {
                             </Link>
                             <Link to="/contact" className={`nav-item nav-link ${path === '/contact' ? "active" : ""}`}>
                                 Liên hệ
+                            </Link>
+                            <Link to="/post" className={`nav-item nav-link ${path === '/post' ? "active" : ""}`}>
+                                Đăng bài viết
                             </Link>
                         </div>
                         {/* Nút Tạo bài viết */}
