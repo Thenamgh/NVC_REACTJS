@@ -7,7 +7,7 @@ import { Client } from '@stomp/stompjs';
 const QRCodePage = () => {
     const { state } = useLocation();
     const navigate = useNavigate();
-    const [timeLeft, setTimeLeft] = useState(15 * 60); // 15 phút
+    const [timeLeft, setTimeLeft] = useState(1 * 60); // 15 phút
     const [stompClient, setStompClient] = useState(null);
 
     useEffect(() => {
@@ -68,11 +68,11 @@ const QRCodePage = () => {
                 <strong
                     style={{
                         color:
-                            timeLeft > 360
+                            timeLeft > 30
                                 ? 'green'
-                                : timeLeft > 180
-                                ? '#ffc107'
-                                : 'red',
+                                : timeLeft > 30
+                                    ? '#ffc107'
+                                    : 'red',
                     }}
                 >
                     {formatTime(timeLeft)}

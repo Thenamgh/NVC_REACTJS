@@ -17,6 +17,13 @@ const PaymentSuccess = () => {
                 >
                     Đến trang sao kê
                 </button>
+
+                <button
+                    onClick={() => navigate('/sao-ke')}
+                    style={styles.button}
+                >
+                    Đến trang sao kê
+                </button>
             </div>
         </div>
     );
